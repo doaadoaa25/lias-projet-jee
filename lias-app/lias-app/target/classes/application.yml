@@ -1,0 +1,57 @@
+server:
+  port: 9090
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/lias_db
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update        # "create" au départ, "update" ensuite
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 20MB
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${MAIL_USERNAME}
+    password: ${MAIL_PASSWORD}
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true
+
+# JWT
+app:
+  jwt:
+    secret: ${JWT_SECRET:MonSuperSecretJWTLIAS2025PourLeProjetJEEMasterDataScience}
+    expiration: 86400000   # 24h en millisecondes
+    refresh-expiration: 604800000  # 7 jours
+
+  # Upload files
+  upload:
+    dir: ./uploads/
+    max-size: 20971520  # 20 MB
+
+# Swagger
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+
+logging:
+  level:
+    ma.lias: DEBUG
+    org.springframework.security: INFO

@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0f2f5;
+  color: #1a1a2e;
+}
+
+:root {
+  --lias-navy: #0a2342;
+  --lias-green: #0f6e56;
+  --lias-light-blue: #e6f1fb;
+  --lias-light-green: #eaf3de;
+  --lias-purple: #534ab7;
+  --lias-amber: #854f0b;
+}
+
+button { cursor: pointer; transition: opacity 0.2s; }
+button:hover { opacity: 0.88; }
+input:focus, select:focus, textarea:focus { outline: 2px solid var(--lias-navy); }
+a { text-decoration: none; }
